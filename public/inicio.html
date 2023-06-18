@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://unpkg.com/@popperjs/core@2">
+  <link rel="icon" href="favicon.ico">
+   <div class="glitch-wrapper">
+  
+<div class="glitch" data-text="MEXMACHINE">MEXMACHINE</div>
+ </div>
+  <style>.glitch-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000000;
+ }
+ 
+ .glitch {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    z-index: 1;
+ }
+ 
+ .glitch:before,
+ .glitch:after {
+    display: block;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+ }
+ 
+ .glitch:before {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #00FFFF;
+    z-index: -1;
+ }
+ 
+ .glitch:after {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #FF00FF;
+    z-index: -2;
+ }
+ 
+ @keyframes glitch-it {
+    0% {
+       transform: translate(0);
+    }
+    20% {
+       transform: translate(-2px, 2px);
+    }
+    40% {
+       transform: translate(-2px, -2px);
+    }
+    60% {
+       transform: translate(2px, 2px);
+    }
+    80% {
+       transform: translate(2px, -2px);
+    }
+    to {
+       transform: translate(0);
+    }
+ }</style>
+  <style>
+    body {
+      background: #959595;
+background: linear-gradient(to right, #959595 0%, #0D0D0D 46%, #010101 50%, #0A0A0A 53%, #4E4E4E 76%, #383838 87%, #1B1B1B 100%);
+
+      
+    }
+
+    .navbar {
+      background-color: #f80404;
+      color: #da0f0f0c;
+      font-family: "Arial", sans-serif;
+    }
+
+    .jumbotron {
+      background-color: #323232;
+      color: #000;
+      font-family: "Arial", sans-serif;
+    }
+
+    .btn-primary {
+      background-color: red;
+      color: #fff;
+      font-family: "Arial", sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-transparent">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+
+        <img src="images/MMG.png" width="250" height="250" class="d-inline-block align-top" alt="">
+        MEXMACHINE
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="inicio.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="CATALOGO.HTML">Catálogo</a>
+        </li>
+        <li class="nav-item">
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="jumbotron">
+      
+      <h1 class="display-4">¡BIENVENIDO! NUESTROS CLIENTES SON PRIORIDAD</h1>
+      <p class="lead">Aquí encontrarás los mejores productos para ti</p>
+      <hr class="my-4">
+      <p>¿Ya tienes una cuenta? ¡Regístrate ahora que esperas!</p>
+      <a class="btn btn-primary btn-lg" href="CATALOGO.HTML" role="button">Ver catálogo</a>
+      <a class="btn btn-primary btn-lg" data-bs-target="#registerModal" data-bs-toggle="modal" role="button">Regístrate</a>
+
+    </div>
+  </div> <!-- Modal de inicio de sesión -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario de inicio de sesión -->
+          <form>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de registro -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario de registro -->
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>  ul li a i { 
+    color: red;
+    
+}
+
+
+</style>
+  <ul>
+    <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+    <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+    <li><a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="https://www.tiktok.com"><i class="fab fa-tiktok"></i></a></li>
+
+</body>
+</html>
