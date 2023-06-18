@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="icon" href="favicon.ico">
+  <title>Catálogo</title>
+  <div class="glitch-wrapper">
+    <div class="glitch" data-text="MEXMACHINE">MEXMACHINE</div>
+ </div>
+ <script src="js.js"></script>
+  <style>.glitch-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000000;
+ }
+ 
+ .glitch {
+    position: relative;
+    font-size: 50px;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    z-index: 1;
+ }
+ 
+ .glitch:before,
+ .glitch:after {
+    display: block;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+ }
+ 
+ .glitch:before {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #00FFFF;
+    z-index: -1;
+ }
+ 
+ .glitch:after {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #FF00FF;
+    z-index: -2;
+ }
+ 
+ @keyframes glitch-it {
+    0% {
+       transform: translate(0);
+    }
+    20% {
+       transform: translate(-2px, 2px);
+    }
+    40% {
+       transform: translate(-2px, -2px);
+    }
+    60% {
+       transform: translate(2px, 2px);
+    }
+    80% {
+       transform: translate(2px, -2px);
+    }
+    to {
+       transform: translate(0);
+    }
+ }</style>
+  <style>
+    body {
+      background: #030303;
+background: linear-gradient(to right, #959595 0%, #0D0D0D 46%, #010101 50%, #0A0A0A 53%, #4E4E4E 76%, #383838 87%, #1B1B1B 100%);
+
+    }
+
+    .navbar {
+      background-color: #0202024e !important;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .producto {
+      width: 200px;
+      text-align: center;
+      padding: 10px;
+      background-color: #8f83834e ;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .producto img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .producto .nombre {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .producto .precio {
+      color: rgb(244, 2, 2);
+      margin-bottom: 10px;
+    }
+
+    .carrito {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .carrito-contenido {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .producto-carrito {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #e3e2e2;
+      margin-bottom: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .producto-carrito .nombre {
+      flex-grow: 1;
+    }
+
+    .producto-carrito .precio {
+      margin-left: 10px;
+    }
+
+    .btn-eliminar {
+      color: red;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="images/MMG.png" width="300" height="300" class="d-inline-block align-top" alt="">
+        MEXMACHINE
+      </a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="inicio.html">Inicio </a>
+          
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="CATALOGO.HTML">Catálogo</a>
+        </li>
+        
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+        </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="box">
+    <div class="ribbon"><span>POPULAR</span></div>
+    <div class="producto">
+      <img src="images/Diseño sin título.jpg" alt="Producto 1">
+      <div class="nombre">super pack</div>
+      <div class="precio">$86</div>
+      <button class="btn btn-primary btn-agregar" data-nombre="Producto 1" data-precio="10">Agregar al carrito</button>
+    </div>
+ </div>
+ <style>.box {
+  width: 200px; height: 300px;
+  position: relative;
+  border: 1px solid #BBB;
+  background: #EEE;
+}
+.ribbon {
+  position: absolute;
+  right: -5px; top: -5px;
+  z-index: 1;
+  overflow: hidden;
+  width: 75px; height: 75px;
+  text-align: right;
+}
+.ribbon span {
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  width: 100px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#F70505 0%, #8F0808 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 19px; right: -21px;
+}
+.ribbon span::before {
+  content: "";
+  position: absolute; left: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid #8F0808;
+  border-right: 3px solid #8F0808;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #8F0808;
+}
+.ribbon span::after {
+  
+  content: "super pack";
+  position: absolute; right: 0px; top: 100%;
+  z-index: -1;
+  border-left: 3px solid transparent;
+  border-right: 3px solid #8F0808;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid #8F0808;
+}
+</style>
+  <div class="catalogo">
+    <div class="producto">
+      <img src="images/Diseño sin título.jpg" alt="Producto 1">
+      <div class="nombre">super pack</div>
+      <div class="precio">$86</div>
+      <button class="btn btn-primary btn-agregar" data-nombre="Producto 1" data-precio="10">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="images/Diseño sin título.jpg" alt="Producto 2">
+      <div class="nombre">battlepass</div>
+      <div class="precio">$150</div>
+      <button class="btn btn-primary btn-agregar" data-nombre="Producto 2" data-precio="15">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="images/Diseño sin título.jpg" alt="Producto 3">
+      <div class="nombre">Personajes</div>
+      <div class="precio">$50</div>
+      <button class="btn btn-primary btn-agregar" data-nombre="Producto 3" data-precio="20">Agregar al carrito</button>
+    </div>
+    <div class="producto">
+      <img src="images/Diseño sin título.jpg" alt="Producto 4">
+      <div class="nombre">skin armas</div>
+      <div class="precio">$50</div>
+      <button class="btn btn-primary btn-agregar" data-nombre="Producto 4" data-precio="25">Agregar al carrito</button>
+    </div>
+  </div>
+
+  <div class="carrito">
+    <button class="btn btn-primary btn-carrito" data-bs-toggle="modal" data-bs-target="#carritoModal">
+      Carrito <span class="badge bg-secondary cantidad-carrito">0</span>
+    </button>
+  </div>
+</div> <!-- Modal de inicio de sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de inicio de sesión -->
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de registro -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Registrarse</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulario de registro -->
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carritoModalLabel">Carrito de compras</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body carrito-contenido">
+          <div class="producto-carrito">
+            <div class="nombre">Producto 1</div>
+            <div class="precio">$10</div>
+            <button class="btn-eliminar" data-indice="0">&times;</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+   
+   document.addEventListener('DOMContentLoaded', function () {
+      const btnAgregar = document.querySelectorAll('.btn-agregar');
+      const btnEliminar = document.querySelectorAll('.btn-eliminar');
+      const btnCarrito = document.querySelector('.btn-carrito');
+      const cantidadCarrito = document.querySelector('.cantidad-carrito');
+      const modalCarrito = document.querySelector('#carritoModal');
+      const carritoContenido = document.querySelector('.carrito-contenido');
+      let carrito = [];
+
+      // Agregar producto al carrito
+      btnAgregar.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const nombre = btn.getAttribute('data-nombre');
+          const precio = parseFloat(btn.getAttribute('data-precio'));
+
+          carrito.push({
+            nombre: nombre,
+            precio: precio
+          });
+
+          actualizarCarrito();
+        });
+      });
+
+      // Eliminar producto del carrito
+      btnEliminar.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const indice = parseInt(btn.getAttribute('data-indice'));
+
+          carrito.splice(indice, 1);
+
+          actualizarCarrito();
+        });
+      });
+
+      // Actualizar carrito
+      
+      function actualizarCarrito() {
+        carritoContenido.innerHTML = 'carrito de compras';
+        let total = 0;
+
+        
+
+        carrito.forEach(function (producto, indice) {
+          const divProducto = document.createElement('div');
+          divProducto.classList.add('producto-carrito');
+
+          const divNombre = document.createElement('div');
+          divNombre.classList.add('nombre');
+          divNombre.textContent = producto.nombre;
+
+          const divPrecio = document.createElement('div');
+          divPrecio.classList.add('precio');
+          divPrecio.textContent = `$${producto.precio.toFixed(2)}`;
+
+          const btnEliminar = document.createElement('button');
+          btnEliminar.classList.add('btn-eliminar');
+          btnEliminar.setAttribute('data-indice', indice);
+          btnEliminar.innerHTML = '&times;';
+
+          divProducto.appendChild(divNombre);
+          divProducto.appendChild(divPrecio);
+          divProducto.appendChild(btnEliminar);
+
+          carritoContenido.appendChild(divProducto);
+
+          total += producto.precio;
+          
+          
+        });
+
+        cantidadCarrito.textContent = carrito.length;
+        btnCarrito.setAttribute('data-bs-target', carrito.length > 0 ? '#carritoModal' : '');
+
+        if (carrito.length === 0) {
+          const divVacio = document.createElement('div');
+          divVacio.textContent = 'El carrito está vacío';
+          carritoContenido.appendChild(divVacio);
+        }
+
+        modalCarrito.addEventListener('show.bs.modal', function () {
+          modalCarrito.style.display = 'block';
+        });
+
+        modalCarrito.addEventListener('hidden.bs.modal', function () {
+          modalCarrito.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</script>
+  <style>.carrito {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .carrito button {
+    margin-right: 10px;
+  }
+  
+  .carrito-contenido {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding-right: 10px;
+  }
+  
+  .camioncito {
+    width: 50px;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .mensaje-confirmacion {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .mensaje-confirmacion h2 {
+    color: green;
+  }
+  
+  .mensaje-confirmacion p {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  </style>
+
+  </style>
+  <style></style>
+  
+</body>
+
+</html>
